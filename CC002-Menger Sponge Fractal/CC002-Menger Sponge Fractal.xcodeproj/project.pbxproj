@@ -1,0 +1,334 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		C4BC749F200E7C3A002938A9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4BC749E200E7C3A002938A9 /* AppDelegate.swift */; };
+		C4BC74A1200E7C3A002938A9 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4BC74A0200E7C3A002938A9 /* GameViewController.swift */; };
+		C4BC74A5200E7C3A002938A9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C4BC74A4200E7C3A002938A9 /* Assets.xcassets */; };
+		C4BC74A8200E7C3A002938A9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4BC74A6200E7C3A002938A9 /* Main.storyboard */; };
+		C4BC74B1200E80E3002938A9 /* Box.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4BC74B0200E80E3002938A9 /* Box.swift */; };
+		C4BC74B3200E9D03002938A9 /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4BC74B2200E9D03002938A9 /* GameView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		C4BC749B200E7C3A002938A9 /* Menger Sponge Fractal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Menger Sponge Fractal.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C4BC749E200E7C3A002938A9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		C4BC74A0200E7C3A002938A9 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
+		C4BC74A4200E7C3A002938A9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		C4BC74A7200E7C3A002938A9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		C4BC74A9200E7C3A002938A9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C4BC74AA200E7C3A002938A9 /* CC002_Menger_Sponge_Fractal.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CC002_Menger_Sponge_Fractal.entitlements; sourceTree = "<group>"; };
+		C4BC74B0200E80E3002938A9 /* Box.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Box.swift; sourceTree = "<group>"; };
+		C4BC74B2200E9D03002938A9 /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C4BC7498200E7C3A002938A9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		C4BC7492200E7C3A002938A9 = {
+			isa = PBXGroup;
+			children = (
+				C4BC749D200E7C3A002938A9 /* CC002-Menger Sponge Fractal */,
+				C4BC749C200E7C3A002938A9 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		C4BC749C200E7C3A002938A9 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C4BC749B200E7C3A002938A9 /* Menger Sponge Fractal.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C4BC749D200E7C3A002938A9 /* CC002-Menger Sponge Fractal */ = {
+			isa = PBXGroup;
+			children = (
+				C4BC749E200E7C3A002938A9 /* AppDelegate.swift */,
+				C4BC74A0200E7C3A002938A9 /* GameViewController.swift */,
+				C4BC74B2200E9D03002938A9 /* GameView.swift */,
+				C4BC74B0200E80E3002938A9 /* Box.swift */,
+				C4BC74A6200E7C3A002938A9 /* Main.storyboard */,
+				C4BC74B4200E9D11002938A9 /* Supporting Files */,
+			);
+			path = "CC002-Menger Sponge Fractal";
+			sourceTree = "<group>";
+		};
+		C4BC74B4200E9D11002938A9 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				C4BC74A4200E7C3A002938A9 /* Assets.xcassets */,
+				C4BC74A9200E7C3A002938A9 /* Info.plist */,
+				C4BC74AA200E7C3A002938A9 /* CC002_Menger_Sponge_Fractal.entitlements */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		C4BC749A200E7C3A002938A9 /* Menger Sponge Fractal */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C4BC74AD200E7C3A002938A9 /* Build configuration list for PBXNativeTarget "Menger Sponge Fractal" */;
+			buildPhases = (
+				C4BC7497200E7C3A002938A9 /* Sources */,
+				C4BC7498200E7C3A002938A9 /* Frameworks */,
+				C4BC7499200E7C3A002938A9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Menger Sponge Fractal";
+			productName = "CC002-Menger Sponge Fractal";
+			productReference = C4BC749B200E7C3A002938A9 /* Menger Sponge Fractal.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		C4BC7493200E7C3A002938A9 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0920;
+				LastUpgradeCheck = 0920;
+				ORGANIZATIONNAME = "Bob Voorneveld";
+				TargetAttributes = {
+					C4BC749A200E7C3A002938A9 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = C4BC7496200E7C3A002938A9 /* Build configuration list for PBXProject "CC002-Menger Sponge Fractal" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = C4BC7492200E7C3A002938A9;
+			productRefGroup = C4BC749C200E7C3A002938A9 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C4BC749A200E7C3A002938A9 /* Menger Sponge Fractal */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		C4BC7499200E7C3A002938A9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C4BC74A8200E7C3A002938A9 /* Main.storyboard in Resources */,
+				C4BC74A5200E7C3A002938A9 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C4BC7497200E7C3A002938A9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C4BC74B1200E80E3002938A9 /* Box.swift in Sources */,
+				C4BC74A1200E7C3A002938A9 /* GameViewController.swift in Sources */,
+				C4BC74B3200E9D03002938A9 /* GameView.swift in Sources */,
+				C4BC749F200E7C3A002938A9 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		C4BC74A6200E7C3A002938A9 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C4BC74A7200E7C3A002938A9 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		C4BC74AB200E7C3A002938A9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		C4BC74AC200E7C3A002938A9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+			};
+			name = Release;
+		};
+		C4BC74AE200E7C3A002938A9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "CC002-Menger Sponge Fractal/Supporting Files/CC002_Menger_Sponge_Fractal.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = HW6LNB4S4F;
+				INFOPLIST_FILE = "CC002-Menger Sponge Fractal/Supporting Files/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "nl.purplegorilla.CC002-Menger-Sponge-Fractal";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+			};
+			name = Debug;
+		};
+		C4BC74AF200E7C3A002938A9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "CC002-Menger Sponge Fractal/Supporting Files/CC002_Menger_Sponge_Fractal.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = HW6LNB4S4F;
+				INFOPLIST_FILE = "CC002-Menger Sponge Fractal/Supporting Files/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "nl.purplegorilla.CC002-Menger-Sponge-Fractal";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C4BC7496200E7C3A002938A9 /* Build configuration list for PBXProject "CC002-Menger Sponge Fractal" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C4BC74AB200E7C3A002938A9 /* Debug */,
+				C4BC74AC200E7C3A002938A9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C4BC74AD200E7C3A002938A9 /* Build configuration list for PBXNativeTarget "Menger Sponge Fractal" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C4BC74AE200E7C3A002938A9 /* Debug */,
+				C4BC74AF200E7C3A002938A9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = C4BC7493200E7C3A002938A9 /* Project object */;
+}
