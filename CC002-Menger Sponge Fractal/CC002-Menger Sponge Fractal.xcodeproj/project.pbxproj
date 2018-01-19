@@ -16,6 +16,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C42832B52011DC37007131C3 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
 		C4BC749B200E7C3A002938A9 /* Menger Sponge Fractal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Menger Sponge Fractal.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4BC749E200E7C3A002938A9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C4BC74A0200E7C3A002938A9 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
@@ -57,6 +58,7 @@
 		C4BC749D200E7C3A002938A9 /* CC002-Menger Sponge Fractal */ = {
 			isa = PBXGroup;
 			children = (
+				C42832B52011DC37007131C3 /* README.md */,
 				C4BC749E200E7C3A002938A9 /* AppDelegate.swift */,
 				C4BC74A0200E7C3A002938A9 /* GameViewController.swift */,
 				C4BC74B2200E9D03002938A9 /* GameView.swift */,
