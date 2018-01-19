@@ -293,11 +293,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = "CC001-Starfield/CC001_Starfield.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "CC001-Starfield/Supporting Files/CC001_Starfield.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = HW6LNB4S4F;
-				INFOPLIST_FILE = "CC001-Starfield/Info.plist";
+				INFOPLIST_FILE = "CC001-Starfield/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "nl.purplegorilla.CC001-Starfield";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -309,11 +309,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = "CC001-Starfield/CC001_Starfield.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "CC001-Starfield/Supporting Files/CC001_Starfield.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = HW6LNB4S4F;
-				INFOPLIST_FILE = "CC001-Starfield/Info.plist";
+				INFOPLIST_FILE = "CC001-Starfield/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "nl.purplegorilla.CC001-Starfield";
 				PRODUCT_NAME = "$(TARGET_NAME)";
