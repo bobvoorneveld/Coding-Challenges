@@ -37,8 +37,7 @@ class Snake {
     func update() -> SKShapeNode? {
         var newNode: SKShapeNode?
         if tailLength > tail.count {
-            newNode = SKShapeNode(rect: CGRect(origin: .zero, size: CGSize(width: size, height: size)))
-            newNode?.position = position
+            newNode = createTailNode(position: position)
             tail.append(newNode!)
         } else {
             for (index, tailNode) in tail.enumerated() {
@@ -96,5 +95,12 @@ class Snake {
             direction = .right
         }
         return death
+    }
+    
+    func createTailNode(position: CGPoint) -> SKShapeNode {
+        let newNode = SKShapeNode(rect: CGRect(origin: .zero, size: CGSize(width: size, height: size)))
+        newNode.fillColor = .white
+        newNode.position = position
+        return newNode
     }
 }

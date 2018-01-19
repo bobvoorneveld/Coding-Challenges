@@ -22,6 +22,7 @@ class Food {
         node = SKShapeNode(rect: CGRect(x: 0, y: 0, width: size, height: size))
         node.position = position
         node.fillColor = .purple
+        node.strokeColor = .purple
     }
     
     func remove() {

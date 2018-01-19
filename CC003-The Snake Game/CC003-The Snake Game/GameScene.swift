@@ -13,6 +13,7 @@ class GameScene: SKScene {
     
     struct Configuration {
         static let scale: CGFloat = 20
+        static let framesPerSecond = 10.0
     }
     
     var scale: CGFloat = 10
@@ -21,6 +22,7 @@ class GameScene: SKScene {
     var food: Food!
     
     var playfieldRect: CGRect!
+    var lastUpdateTime: TimeInterval = 0
     
     override func didMove(to view: SKView) {
         snake = Snake(position: CGPoint(x: 0, y: 0), size: Configuration.scale)
@@ -52,6 +54,10 @@ class GameScene: SKScene {
     }
     
     override func update(_ currentTime: TimeInterval) {
+        guard (currentTime - lastUpdateTime) > (60.0 / Configuration.framesPerSecond / 60) else {
+            return
+        }
+        lastUpdateTime = currentTime
         guard !snake.checkDeath(playfield: playfieldRect) else {
             print("game over!")
             return
