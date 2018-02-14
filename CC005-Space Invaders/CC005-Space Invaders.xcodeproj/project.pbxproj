@@ -1,0 +1,340 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		C44A8EFD202A2D5100179335 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44A8EFC202A2D5100179335 /* AppDelegate.swift */; };
+		C44A8F03202A2D5100179335 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44A8F02202A2D5100179335 /* GameScene.swift */; };
+		C44A8F05202A2D5100179335 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44A8F04202A2D5100179335 /* ViewController.swift */; };
+		C44A8F07202A2D5100179335 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C44A8F06202A2D5100179335 /* Assets.xcassets */; };
+		C44A8F0A202A2D5100179335 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C44A8F08202A2D5100179335 /* Main.storyboard */; };
+		C44A8F13202A2E3300179335 /* Ship.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44A8F12202A2E3300179335 /* Ship.swift */; };
+		C44A8F15202A32B600179335 /* Flower.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44A8F14202A32B600179335 /* Flower.swift */; };
+		C44A8F17202A34ED00179335 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = C44A8F16202A34ED00179335 /* GameScene.sks */; };
+		C44A8F19202A36B200179335 /* Drop.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44A8F18202A36B200179335 /* Drop.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		C44A8EF9202A2D5100179335 /* Space Invaders.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Space Invaders.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C44A8EFC202A2D5100179335 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		C44A8F02202A2D5100179335 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
+		C44A8F04202A2D5100179335 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		C44A8F06202A2D5100179335 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		C44A8F09202A2D5100179335 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		C44A8F0B202A2D5100179335 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C44A8F0C202A2D5100179335 /* CC005_Space_Invaders.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CC005_Space_Invaders.entitlements; sourceTree = "<group>"; };
+		C44A8F12202A2E3300179335 /* Ship.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ship.swift; sourceTree = "<group>"; };
+		C44A8F14202A32B600179335 /* Flower.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Flower.swift; sourceTree = "<group>"; };
+		C44A8F16202A34ED00179335 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
+		C44A8F18202A36B200179335 /* Drop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Drop.swift; sourceTree = "<group>"; };
+		C4885FBA2034902800738CBD /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C44A8EF6202A2D5100179335 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		C44A8EF0202A2D5100179335 = {
+			isa = PBXGroup;
+			children = (
+				C44A8EFB202A2D5100179335 /* CC005-Space Invaders */,
+				C44A8EFA202A2D5100179335 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		C44A8EFA202A2D5100179335 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C44A8EF9202A2D5100179335 /* Space Invaders.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C44A8EFB202A2D5100179335 /* CC005-Space Invaders */ = {
+			isa = PBXGroup;
+			children = (
+				C4885FBA2034902800738CBD /* README.md */,
+				C44A8EFC202A2D5100179335 /* AppDelegate.swift */,
+				C44A8F12202A2E3300179335 /* Ship.swift */,
+				C44A8F14202A32B600179335 /* Flower.swift */,
+				C44A8F18202A36B200179335 /* Drop.swift */,
+				C44A8F16202A34ED00179335 /* GameScene.sks */,
+				C44A8F02202A2D5100179335 /* GameScene.swift */,
+				C44A8F04202A2D5100179335 /* ViewController.swift */,
+				C44A8F06202A2D5100179335 /* Assets.xcassets */,
+				C44A8F08202A2D5100179335 /* Main.storyboard */,
+				C44A8F0B202A2D5100179335 /* Info.plist */,
+				C44A8F0C202A2D5100179335 /* CC005_Space_Invaders.entitlements */,
+			);
+			path = "CC005-Space Invaders";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		C44A8EF8202A2D5100179335 /* Space Invaders */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C44A8F0F202A2D5100179335 /* Build configuration list for PBXNativeTarget "Space Invaders" */;
+			buildPhases = (
+				C44A8EF5202A2D5100179335 /* Sources */,
+				C44A8EF6202A2D5100179335 /* Frameworks */,
+				C44A8EF7202A2D5100179335 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Space Invaders";
+			productName = "CC005-Space Invaders";
+			productReference = C44A8EF9202A2D5100179335 /* Space Invaders.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		C44A8EF1202A2D5100179335 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0920;
+				LastUpgradeCheck = 0920;
+				ORGANIZATIONNAME = "Bob Voorneveld";
+				TargetAttributes = {
+					C44A8EF8202A2D5100179335 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = C44A8EF4202A2D5100179335 /* Build configuration list for PBXProject "CC005-Space Invaders" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = C44A8EF0202A2D5100179335;
+			productRefGroup = C44A8EFA202A2D5100179335 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C44A8EF8202A2D5100179335 /* Space Invaders */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		C44A8EF7202A2D5100179335 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C44A8F07202A2D5100179335 /* Assets.xcassets in Resources */,
+				C44A8F17202A34ED00179335 /* GameScene.sks in Resources */,
+				C44A8F0A202A2D5100179335 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C44A8EF5202A2D5100179335 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C44A8F05202A2D5100179335 /* ViewController.swift in Sources */,
+				C44A8F13202A2E3300179335 /* Ship.swift in Sources */,
+				C44A8F19202A36B200179335 /* Drop.swift in Sources */,
+				C44A8F15202A32B600179335 /* Flower.swift in Sources */,
+				C44A8F03202A2D5100179335 /* GameScene.swift in Sources */,
+				C44A8EFD202A2D5100179335 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		C44A8F08202A2D5100179335 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C44A8F09202A2D5100179335 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		C44A8F0D202A2D5100179335 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		C44A8F0E202A2D5100179335 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+			};
+			name = Release;
+		};
+		C44A8F10202A2D5100179335 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "CC005-Space Invaders/CC005_Space_Invaders.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = HW6LNB4S4F;
+				INFOPLIST_FILE = "CC005-Space Invaders/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "nl.purplegorilla.CC005-Space-Invaders";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+			};
+			name = Debug;
+		};
+		C44A8F11202A2D5100179335 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "CC005-Space Invaders/CC005_Space_Invaders.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = HW6LNB4S4F;
+				INFOPLIST_FILE = "CC005-Space Invaders/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "nl.purplegorilla.CC005-Space-Invaders";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C44A8EF4202A2D5100179335 /* Build configuration list for PBXProject "CC005-Space Invaders" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C44A8F0D202A2D5100179335 /* Debug */,
+				C44A8F0E202A2D5100179335 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C44A8F0F202A2D5100179335 /* Build configuration list for PBXNativeTarget "Space Invaders" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C44A8F10202A2D5100179335 /* Debug */,
+				C44A8F11202A2D5100179335 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = C44A8EF1202A2D5100179335 /* Project object */;
+}
