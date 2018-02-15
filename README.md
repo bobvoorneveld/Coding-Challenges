@@ -4,7 +4,7 @@ This repository is a collection of the all the Coding Train Coding Callenges I h
 
 I would like to thank Dan Shiffman for all the great video's, books and websites he has created. His enthousiastic video's are the reason I started this repository.
 
-My goal is to catch up with the challenges.
+My goal is to catch up with the challenges. To have a broad overview of my progress, [check this file](Checklist Challenges.md)
 
 The original videos for these challenges are on [YouTube](https://www.youtube.com/watch?v=17WoOqgXsRM&list=PLRqwX-V7Uu6ZiZxtDDRCi6uhfTH4FilpH)
 
