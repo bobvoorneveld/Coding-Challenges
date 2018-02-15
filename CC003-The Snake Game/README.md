@@ -6,5 +6,6 @@ In this version was extra added:
 
 - When the edge is hit, the game will start over.
 
-The original video for this challenge on [youtube](https://www.youtube.com/watch?v=AaGK-fj-BAM)
-The original challenge on [github](http://codingtrain.github.io/Rainbow-Code/CodingChallenges/03-snake-game-p5.html)
+The original video for this challenge on [YouTube](https://www.youtube.com/watch?v=AaGK-fj-BAM)
+
+The original challenge on [The Coding Train](http://thecodingtrain.com/CodingChallenges/03-snake-game-p5.html)

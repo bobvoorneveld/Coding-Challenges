@@ -6,5 +6,6 @@ In this version was extra added:
 
 - No extra's.
 
-The original video for this challenge on [youtube](https://www.youtube.com/watch?v=biN3v3ef-Y0)
-The original challenge on [github](http://thecodingtrain.com/CodingChallenges/05-space-invaders-p5.html)
+The original video for this challenge on [YouTube](https://www.youtube.com/watch?v=biN3v3ef-Y0)
+
+The original challenge on [The Coding Train](http://thecodingtrain.com/CodingChallenges/05-space-invaders-p5.html)

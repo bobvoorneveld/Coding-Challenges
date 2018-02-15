@@ -6,5 +6,6 @@ In this version was extra added:
 
 - No extra's.
 
-The original video for this challenge on [youtube](https://www.youtube.com/watch?v=KkyIDI6rQJI)
-The original challenge on [github](http://thecodingtrain.com/CodingChallenges/04-purplerain.html)
+The original video for this challenge on [YouTube](https://www.youtube.com/watch?v=KkyIDI6rQJI)
+
+The original challenge on [The Coding Train](http://thecodingtrain.com/CodingChallenges/04-purplerain.html)

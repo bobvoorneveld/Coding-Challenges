@@ -6,5 +6,6 @@ In this version was extra added:
 
 - No extra's, implementing 3D was a challenge on its own.
 
-The original video for this challenge on [youtube](https://www.youtube.com/watch?v=LG8ZK-rRkXo)
-The original challenge on [github](http://codingtrain.github.io/Rainbow-Code/CodingChallenges/02-mengersponge.html)
+The original video for this challenge on [YouTube](https://www.youtube.com/watch?v=LG8ZK-rRkXo)
+
+The original challenge on [The Coding Train](http://thecodingtrain.com/CodingChallenges/02-mengersponge.html)
