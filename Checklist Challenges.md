@@ -1,15 +1,15 @@
 # Overview of Coding Challenges
 
 - [x] 01 [Starfield](CC001-Starfield/README.md)
-- [x] 02 [Menger Sponge Fractal](CC002-Menger Sponge Fractal/README.md)
-- [x] 03 [The Snake Game](CC003-The Snake Game/README.md)
-- [x] 04 [Purple Rain](CC004-Purple Rain/README.md)
-- [x] 05 [Space Invaders](CC005-Space Invaders/README.md)
+- [x] 02 [Menger Sponge Fractal](CC002-Menger%20Sponge%20Fractal/README.md)
+- [x] 03 [The Snake Game](CC003-The%20Snake%20Game/README.md)
+- [x] 04 [Purple Rain](CC004-Purple%20Rain/README.md)
+- [x] 05 [Space Invaders](CC005-Space%20Invaders/README.md)
 - [ ] 06-mitosis
 - [ ] 07-solarsystemgenerator
 - [ ] 08-solarsystemgenerator3d
 - [ ] 09-solarsystemgenerator3d-texture
-- [x] 10 [Maze Generation](CC010-Maze Generation & CC051-A* Pathfinding Algorithm/README.md)
+- [x] 10 [Maze Generation](CC010-Maze%20Generation%20&%20CC051-A*%20Pathfinding%20Algorithm/README.md)
 - [ ] 11-perlinnoiseterrain
 - [ ] 12-lorenzattractor
 - [ ] 13-reactiondiffusion-p5
@@ -61,7 +61,7 @@
 - [ ] 49-obamamosaic
 - [ ] 50.1-circlepackinganimated
 - [ ] 50.2-circlepackingimage
-- [x] 51 [A* Pathfinding Algorithm](CC010-Maze Generation & CC051-A* Pathfinding Algorithm/README.md)
+- [x] 51 [A* Pathfinding Algorithm](CC010-Maze%20Generation%20&%20CC051-A*%20Pathfinding%20Algorithm/README.md)
 - [ ] 51.2-astar
 - [ ] 51.3-astar
 - [ ] 52-random-walk
