@@ -32,4 +32,8 @@ class Grid<CellType> {
             cells[i + j * cols] = newValue
         }
     }
+    
+    func forEach(_ callback: (CellType?) -> Void) {
+        cells.forEach(callback)
+    }
 }

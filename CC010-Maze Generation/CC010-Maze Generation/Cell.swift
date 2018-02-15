@@ -11,9 +11,16 @@ import SpriteKit
 class Cell: SKNode {
     let i: Int
     let j: Int
-    let size: CGFloat
+    let width: CGFloat
+    let height: CGFloat
     
     var fill: SKShapeNode?
+    
+    // Path finding
+    var f = 0.0
+    var g = 0.0
+    var h = 0.0
+    var previous: Cell?
 
     var visited = false {
         didSet {
@@ -23,18 +30,38 @@ class Cell: SKNode {
         }
     }
     
-    var highLightRect: SKShapeNode?
+    private var highLightRect: SKShapeNode?
     var highlight = false {
         didSet {
-            if highlight {
-                highLightRect = SKShapeNode(rect: CGRect(x: 0, y: 0, width: size, height: size))
+            if highlight && highLightRect == nil {
+                closedPathRect?.removeFromParent()
+                highLightRect = SKShapeNode(rect: CGRect(x: 0, y: 0, width: width, height: height))
                 highLightRect!.lineWidth = 0
-                highLightRect!.fillColor = .red
-                highLightRect!.zPosition = 0
+                highLightRect!.fillColor = NSColor(calibratedRed: 19/255.0, green: 39/255.0, blue: 71/255.0, alpha: 1.0)
+                highLightRect!.zPosition = 1
                 addChild(highLightRect!)
             } else {
                 highLightRect?.removeFromParent()
                 highLightRect = nil
+                if let closed = closedPathRect, closed.parent == nil {
+                    addChild(closed)
+                }
+            }
+        }
+    }
+    
+    private var closedPathRect: SKShapeNode?
+    var closedPath = false {
+        didSet {
+            if closedPath && closedPathRect == nil {
+                closedPathRect = SKShapeNode(rect: CGRect(x: 0, y: 0, width: width, height: height))
+                closedPathRect!.lineWidth = 0
+                closedPathRect!.fillColor = NSColor(calibratedRed: 168/255.0, green: 84/255.0, blue: 42/255.0, alpha: 1.0)
+                closedPathRect!.zPosition = 0
+                addChild(closedPathRect!)
+            } else {
+                closedPathRect?.removeFromParent()
+                closedPathRect = nil
             }
         }
     }
@@ -42,25 +69,26 @@ class Cell: SKNode {
     var top: SKNode?
     var right: SKNode?
 
-    init(i: Int, j: Int, size: CGFloat) {
+    init(i: Int, j: Int, width: CGFloat, height: CGFloat) {
         self.i = i
         self.j = j
-        self.size = size
+        self.width = width
+        self.height = height
         super.init()
-        top = createLineNode(start: CGPoint(x: 0, y: size), end: CGPoint(x: size, y: size))
-        top?.zPosition = 1
+        top = createLineNode(start: CGPoint(x: 0, y: height), end: CGPoint(x: width, y: height))
+        top?.zPosition = 2
         addChild(top!)
-        right = createLineNode(start: CGPoint(x: size, y: size), end: CGPoint(x: size, y: 0))
-        right?.zPosition = 1
+        right = createLineNode(start: CGPoint(x: width, y: height), end: CGPoint(x: width, y: 0))
+        right?.zPosition = 2
         addChild(right!)
 
-        fill = SKShapeNode(rect: CGRect(x: 0, y: 0, width: size, height: size))
+        fill = SKShapeNode(rect: CGRect(x: 0, y: 0, width: width, height: height))
         fill!.lineWidth = 0
         fill!.fillColor = .darkGray
         fill!.zPosition = -1
         addChild(fill!)
 
-        position = CGPoint(x: i * size, y: j * size)
+        position = CGPoint(x: i * width, y: j * height)
     }
     
     
@@ -86,6 +114,23 @@ class Cell: SKNode {
             return nil
         }
     }
+    
+    func neighbors(_ grid: Grid<Cell>) -> Set<Cell> {
+        var neighbors = Set<Cell>()
+            if let topCell = grid[i, j + 1], top == nil {
+                neighbors.insert(topCell)
+            }
+            if let rightCell = grid[i + 1, j], right == nil {
+                neighbors.insert(rightCell)
+            }
+        if let bottomCell = grid[i, j - 1], bottomCell.top == nil {
+            neighbors.insert(bottomCell)
+        }
+        if let leftCell = grid[i - 1, j], leftCell.right == nil {
+            neighbors.insert(leftCell)
+        }
+        return neighbors
+    }
 
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -102,6 +147,13 @@ class Cell: SKNode {
     }
 }
 
+extension Cell {
+    static func dummy(_ f: Double) -> Cell {
+        let dummyCell = Cell(i: -1, j: -1, width: -1, height: -1)
+        dummyCell.f = f
+        return dummyCell
+    }
+}
 
 func *(lhs: Int, rhs: CGFloat) -> CGFloat {
     return CGFloat(lhs) * rhs

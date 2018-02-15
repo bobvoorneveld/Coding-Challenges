@@ -4,7 +4,8 @@ This is a MacOS X - Swift 4 - SpriteKit implementation of the Maze Generation Co
 
 In this version was extra added:
 
-- No extra's.
+- A* Pathfinding Algorithm Coding Challenge (#51). [YouTube](https://www.youtube.com/watch?v=aKYlikFAV4k), [The Coding Train](http://thecodingtrain.com/CodingChallenges/51.1-astar.html)
 
-The original video for this challenge on [youtube](https://www.youtube.com/watch?v=HyK_Q5rrcr4)
-The original challenge on [github](http://thecodingtrain.com/CodingChallenges/10.1-maze-dfs-p5.html)
+
+The original video for this challenge on [YouTube](https://www.youtube.com/watch?v=HyK_Q5rrcr4)
+The original challenge on [The Coding Train](http://thecodingtrain.com/CodingChallenges/10.1-maze-dfs-p5.html)
