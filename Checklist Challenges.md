@@ -35,11 +35,7 @@
 - [ ] 32.2-agario-sockets
 - [ ] 33-poisson-disc
 - [ ] 34-dla
-- [ ] 35.1-tsp
-- [ ] 35.2-tsp
-- [ ] 35.3-tsp
-- [ ] 35.4-tsp
-- [ ] 35.5-tsp
+- [x] 35 [Traveling Salesperson](CC035-Traveling%20Salesperson/README.md)
 - [ ] 36-blobby
 - [ ] 37-diastic
 - [ ] 38-work-interactor
