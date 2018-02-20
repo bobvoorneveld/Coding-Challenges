@@ -7,12 +7,23 @@
 //
 
 import SpriteKit
-import GameplayKit
 
 class GameScene: SKScene {
     
+    enum Mode {
+        case random
+        case lexical
+        case genetic
+    }
+    
+    private var currentMode: Mode = .genetic
+
+    private var distanceNode: SKLabelNode!
+    private var nodeSizeNode: SKLabelNode!
+    private var infoNode: SKLabelNode!
+
     private var spinnyNode : SKShapeNode?
-    private var nodes = [SKShapeNode]()
+    var nodes = [SKShapeNode]()
     
     private lazy var formatter: NumberFormatter = {
         let formatter = NumberFormatter()
@@ -20,14 +31,19 @@ class GameScene: SKScene {
         return formatter
     }()
     
-    private var path: SKShapeNode?
-    private var shortestDistance = Double(Int.max)
     private var shortestPath: SKShapeNode?
-    private var distanceNode: SKLabelNode!
+    private var shortestDistance = Double(Int.max)
+
+    private var shortestDistanceForGeneration = Double(Int.max)
+    private var bestPathForGeneration: SKShapeNode?
     
-    private var arrangement = [Int]()
-    private var possibilities = 0
-    private var possibilityNumber = 0
+    // Lexical
+    var arrangement = [Int]()
+    var count = 0
+    
+    // Genetic
+    var population = [Path]()
+    var lookup = [Int: Double]()
 
     override func didMove(to view: SKView) {
         
@@ -37,155 +53,164 @@ class GameScene: SKScene {
         spinnyNode!.lineWidth = 2.5
         spinnyNode!.run(SKAction.repeatForever(SKAction.rotate(byAngle: CGFloat(Double.pi), duration: 1)))
         
-        distanceNode = SKLabelNode(text: "0")
+        distanceNode = SKLabelNode(text: "Distance: 0")
         distanceNode.position = CGPoint(x: -size.width / 2, y: -size.height / 2)
         distanceNode.horizontalAlignmentMode = .left
         distanceNode.verticalAlignmentMode = .bottom
         addChild(distanceNode!)
+
+        nodeSizeNode = SKLabelNode(text: "Cities: 0")
+        nodeSizeNode.position = CGPoint(x: -size.width / 2, y: size.height / 2)
+        nodeSizeNode.horizontalAlignmentMode = .left
+        nodeSizeNode.verticalAlignmentMode = .top
+        addChild(nodeSizeNode!)
+
+        infoNode = SKLabelNode(text: "")
+        infoNode.position = CGPoint(x: -size.width / 2, y: (size.height / 2) - nodeSizeNode.frame.height)
+        infoNode.horizontalAlignmentMode = .left
+        infoNode.verticalAlignmentMode = .top
+        addChild(infoNode!)
     }
 
     override func mouseUp(with event: NSEvent) {
         let pos = event.location(in: self)
-        if let n = spinnyNode?.copy() as! SKShapeNode? {
-            shortestDistance = Double(Int.max)
-            shortestPath?.removeFromParent()
-            n.position = pos
-            if nodes.count == 0 {
+        addNode(at: pos)
+    }
+    
+    func addNode(at position: CGPoint) {
+        guard let n = spinnyNode?.copy() as! SKShapeNode? else {
+            return
+        }
+        shortestDistance = Double(Int.max)
+        shortestPath?.removeFromParent()
+        n.position = position
+        if nodes.count == 0 {
             n.strokeColor = .red
-            } else {
-                n.strokeColor = .blue
-            }
-            addChild(n)
-            nodes.append(n)
-            arrangement.append(arrangement.count)
-            arrangement.sort()
-            createPath(from: newOrderNodes())
+        } else {
+            n.strokeColor = .blue
+        }
+        addChild(n)
+        nodes.append(n)
+        nodeSizeNode.text = "Cities: \(nodes.count)"
+        
+        
+        switch currentMode {
+        case .genetic:
+            createNewPopulation()
+        case .lexical:
+            // Reset the arrangement
+            arrangement = [Int](0 ..< nodes.count)
+            count = 0
+        default: break
         }
     }
     
     override func update(_ currentTime: TimeInterval) {
-//        let random = nodes.shuffled()
-//        createPath(from: random)
-        if let lexical = nextLexicographicalOrder() {
-            createPath(from: lexical)
+        let prevDistance = shortestDistance
+        shortestDistanceForGeneration = Double(Int.max)
+        bestPathForGeneration?.removeFromParent()
+        
+        switch currentMode {
+        case .random:
+            if nodes.count > 2 {
+                var random = nodes[1...].shuffled()
+                random.insert(nodes[0], at: 0)
+                nodes = random
+            }
+            createPath(from: nodes)
+        case .lexical:
+            if let lexical = nextLexicographicalOrder() {
+                count += 1
+                infoNode.text = "Possibilities tried: \(count + 1) / \(factorial(nodes.count - 1))"
+                createPath(from: lexical)
+            }
+        case .genetic:
+            normalizePopulation()
+            nextGeneration()
+        }
+        
+        if prevDistance > shortestDistance {
+            backgroundColor = .white
+        } else {
+            backgroundColor = .black
         }
     }
     
     override func keyDown(with event: NSEvent) {
         if event.keyCode == 0x31 {
             reset()
-            print("spacebar")
         }
     }
     
     private func reset() {
+        distanceNode.text = "Distance: 0"
+        nodeSizeNode.text = "Cities: 0"
+
         nodes.forEach({$0.removeFromParent()})
         nodes.removeAll()
-        path?.removeFromParent()
+
         shortestPath?.removeFromParent()
         shortestDistance = Double(Int.max)
-        distanceNode.text = "0"
+        bestPathForGeneration?.removeFromParent()
+        
         arrangement = [Int]()
+        
+        population.removeAll(keepingCapacity: true)
+        lookup.removeAll()
     }
     
-    private func createPath(from nodes: [SKShapeNode]) {
+    @discardableResult
+    func createPath(from nodes: [SKShapeNode]) -> Double? {
         guard nodes.count > 1 else {
-            return
+            return nil
         }
-        var points = nodes.map { $0.position }
-        let distance = calcDistance(points)
+        let distance = calcDistance(nodes)
         
-        path?.removeFromParent()
-        path = SKShapeNode(points: &points, count: points.count)
-        addChild(path!)
+        if distance < shortestDistanceForGeneration {
+            var points = nodes.map { $0.position }
+            shortestDistanceForGeneration = distance
+            bestPathForGeneration?.removeFromParent()
+            bestPathForGeneration = SKShapeNode(points: &points, count: points.count)
+            addChild(bestPathForGeneration!)
+        }
 
         if distance < shortestDistance {
-            newShortestDistance(distance: distance, path: path!)
+            let points = nodes.map { $0.position }
+            newShortestDistance(distance: distance, points: points)
         }
+        
+        return 1 / (pow(distance, 8) + 1)
     }
     
-    private func calcDistance(_ points: [CGPoint]) -> Double {
+    private func calcDistance(_ nodes: [SKShapeNode]) -> Double {
         var distance = 0.0
         
-        for i in 1 ..< points.count {
-            let xDist = Double(points[i - 1].x) - Double(points[i].x)
-            let yDist = Double(points[i - 1].y) - Double(points[i].y)
-            distance += Double(sqrt((xDist * xDist) + (yDist * yDist)))
+        for i in 1 ..< nodes.count - 1 {
+            let nodeA = nodes[i]
+            let nodeB = nodes[i + 1]
+            let hash = (nodeA.hashValue << 5) &+ nodeA.hashValue &+ nodeB.hashValue
+            if let nodeDistance = lookup[hash] {
+                distance += nodeDistance
+            } else {
+                let xDist = Double(nodeA.position.x) - Double(nodeB.position.x)
+                let yDist = Double(nodeA.position.y) - Double(nodeB.position.y)
+                let newDistance = Double(sqrt((xDist * xDist) + (yDist * yDist)))
+                lookup[hash] = newDistance
+                distance += newDistance
+            }
         }
         return distance
     }
     
-    private func newShortestDistance(distance: Double, path: SKShapeNode) {
-        distanceNode.text = formatter.string(from: distance as NSNumber)
+    private func newShortestDistance(distance: Double, points: [CGPoint]) {
+        var points = points
+        distanceNode.text = "Distance: \(formatter.string(from: distance as NSNumber)!)"
         shortestDistance = distance
         shortestPath?.removeFromParent()
-        shortestPath = path.copy() as? SKShapeNode
+        shortestPath = SKShapeNode(points: &points, count: points.count)
         shortestPath?.strokeColor = .green
         shortestPath?.lineWidth = 4
         shortestPath?.zPosition = 2
         addChild(shortestPath!)
-    }
-    
-    private func nextLexicographicalOrder() -> [SKShapeNode]? {
-        guard arrangement.count > 1 else {
-            return nil
-        }
-
-        
-        var largestI = -1
-        for i in 1 ..< arrangement.count - 1 {
-            if arrangement[i] < arrangement[i + 1] {
-                largestI = i
-            }
-        }
-        
-        guard largestI != -1 else {
-            return nil
-        }
-        
-        var largestJ = -1
-        for j in 1 ..< arrangement.count {
-            if arrangement[largestI] < arrangement[j]{
-                largestJ = j
-            }
-        }
-        
-        arrangement.swapAt(largestI, largestJ)
-        var lastPart = arrangement[(largestI + 1)...]
-        lastPart.reverse()
-        arrangement.replaceSubrange((largestI + 1)..., with: lastPart)
-        
-        return newOrderNodes()
-    }
-    
-    private func newOrderNodes() -> [SKShapeNode] {
-        var newOrderNodes = [SKShapeNode]()
-        for index in arrangement {
-            newOrderNodes.append(nodes[index])
-        }
-        return newOrderNodes
-    }
-}
-
-extension MutableCollection {
-    /// Shuffles the contents of this collection.
-    mutating func shuffle() {
-        let c = count
-        guard c > 1 else { return }
-        
-        for (firstUnshuffled, unshuffledCount) in zip(indices, stride(from: c, to: 1, by: -1)) {
-            let d: IndexDistance = numericCast(arc4random_uniform(numericCast(unshuffledCount)))
-            let i = index(firstUnshuffled, offsetBy: d)
-            swapAt(firstUnshuffled, i)
-        }
-    }
-}
-
-extension Sequence {
-    /// Returns an array with the contents of this sequence, shuffled.
-    func shuffled() -> [Iterator.Element] {
-        var result = Array(self)
-        result.shuffle()
-        return result
     }
 }

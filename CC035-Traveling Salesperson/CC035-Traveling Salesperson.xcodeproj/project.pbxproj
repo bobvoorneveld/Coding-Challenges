@@ -13,6 +13,10 @@
 		C41AD492203AFD7500E55A6F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41AD491203AFD7500E55A6F /* ViewController.swift */; };
 		C41AD494203AFD7500E55A6F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C41AD493203AFD7500E55A6F /* Assets.xcassets */; };
 		C41AD497203AFD7500E55A6F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C41AD495203AFD7500E55A6F /* Main.storyboard */; };
+		C4C09FE1203C140100A6791A /* Random.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C09FE0203C140100A6791A /* Random.swift */; };
+		C4C09FE3203C165900A6791A /* Lexical.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C09FE2203C165900A6791A /* Lexical.swift */; };
+		C4C09FE5203C172500A6791A /* Genetic.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C09FE4203C172500A6791A /* Genetic.swift */; };
+		C4C09FE7203C2D3000A6791A /* Path.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C09FE6203C2D3000A6791A /* Path.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +30,10 @@
 		C41AD498203AFD7500E55A6F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C41AD499203AFD7500E55A6F /* CC035_Traveling_Salesperson.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CC035_Traveling_Salesperson.entitlements; sourceTree = "<group>"; };
 		C41AD49F203B219A00E55A6F /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
+		C4C09FE0203C140100A6791A /* Random.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Random.swift; sourceTree = "<group>"; };
+		C4C09FE2203C165900A6791A /* Lexical.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lexical.swift; sourceTree = "<group>"; };
+		C4C09FE4203C172500A6791A /* Genetic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Genetic.swift; sourceTree = "<group>"; };
+		C4C09FE6203C2D3000A6791A /* Path.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Path.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,11 +70,15 @@
 				C41AD489203AFD7500E55A6F /* AppDelegate.swift */,
 				C41AD48B203AFD7500E55A6F /* GameScene.sks */,
 				C41AD48F203AFD7500E55A6F /* GameScene.swift */,
+				C4C09FE0203C140100A6791A /* Random.swift */,
+				C4C09FE2203C165900A6791A /* Lexical.swift */,
+				C4C09FE4203C172500A6791A /* Genetic.swift */,
 				C41AD491203AFD7500E55A6F /* ViewController.swift */,
 				C41AD493203AFD7500E55A6F /* Assets.xcassets */,
 				C41AD495203AFD7500E55A6F /* Main.storyboard */,
 				C41AD498203AFD7500E55A6F /* Info.plist */,
 				C41AD499203AFD7500E55A6F /* CC035_Traveling_Salesperson.entitlements */,
+				C4C09FE6203C2D3000A6791A /* Path.swift */,
 			);
 			path = "CC035-Traveling Salesperson";
 			sourceTree = "<group>";
@@ -143,9 +155,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C4C09FE1203C140100A6791A /* Random.swift in Sources */,
+				C4C09FE7203C2D3000A6791A /* Path.swift in Sources */,
 				C41AD492203AFD7500E55A6F /* ViewController.swift in Sources */,
 				C41AD490203AFD7500E55A6F /* GameScene.swift in Sources */,
 				C41AD48A203AFD7500E55A6F /* AppDelegate.swift in Sources */,
+				C4C09FE3203C165900A6791A /* Lexical.swift in Sources */,
+				C4C09FE5203C172500A6791A /* Genetic.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
