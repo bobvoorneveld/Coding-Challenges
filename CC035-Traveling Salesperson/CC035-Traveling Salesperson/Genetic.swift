@@ -8,8 +8,8 @@
 
 import SpriteKit
 
-let populationSize = 100
-let learningRate: Double = 0.05
+let populationSize = 50
+let learningRate: Double = 0.1
 
 extension GameScene {
     
@@ -32,17 +32,24 @@ extension GameScene {
         var newPopulation = [Path]()
         
         let reUse = Int(Double(population.count) * 0.95)
+        if let path = bestPath {
+            newPopulation.append(path)
+        }
+
         for _ in 1 ..< reUse {
             let pathA = pickOne()
             let pathB = pickOne()
             
+            var newPath: Path
             if pathA == pathB {
-                let newPath = mutate(pathA, mutationRate: learningRate)
-                newPopulation.append(newPath)
+                newPath = mutate(pathA, mutationRate: learningRate)
             } else {
-                let newPath = crossOver(pathA, pathB)
-                newPopulation.append(newPath)
+                newPath = crossOver(pathA, pathB)
             }
+            if newPath.distance == shortestDistance {
+                bestPath = newPath
+            }
+            newPopulation.append(newPath)
         }
         
         for _ in 0 ... population.count - reUse {
@@ -66,13 +73,17 @@ extension GameScene {
     }
     
     private func crossOver(_ a: Path, _ b: Path) -> Path {
-        let switchPoint = random(1, a.order.count)
-        var newOrder = Array(a.order[0 ..< switchPoint])
+        let startIndex = random(1, a.order.count)
+        let endIndex = random(startIndex + 1, a.order.count)
+        let removingItems = a.order[startIndex ..< endIndex]
+        var addingItems = [Int]()
         for item in b.order {
-            if !newOrder.contains(item) {
-                newOrder.append(item)
+            if removingItems.contains(item) {
+                addingItems.append(item)
             }
         }
+        var newOrder = a.order
+        newOrder.replaceSubrange(startIndex ..< endIndex, with: addingItems)
         let distance = createPath(from: newOrder.map { nodes[$0] }) ?? 0
         return Path(order: newOrder, distance: distance)
     }

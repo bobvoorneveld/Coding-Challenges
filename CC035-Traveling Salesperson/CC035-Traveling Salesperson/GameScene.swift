@@ -17,6 +17,7 @@ class GameScene: SKScene {
     }
     
     private var currentMode: Mode = .genetic
+    private var startingPoints = 250
 
     private var distanceNode: SKLabelNode!
     private var nodeSizeNode: SKLabelNode!
@@ -32,7 +33,7 @@ class GameScene: SKScene {
     }()
     
     private var shortestPath: SKShapeNode?
-    private var shortestDistance = Double(Int.max)
+    var shortestDistance = Double(Int.max)
 
     private var shortestDistanceForGeneration = Double(Int.max)
     private var bestPathForGeneration: SKShapeNode?
@@ -44,6 +45,7 @@ class GameScene: SKScene {
     // Genetic
     var population = [Path]()
     var lookup = [Int: Double]()
+    var bestPath: Path?
     var generation = 0
 
     override func didMove(to view: SKView) {
@@ -72,11 +74,20 @@ class GameScene: SKScene {
         infoNode.horizontalAlignmentMode = .left
         infoNode.verticalAlignmentMode = .top
         addChild(infoNode!)
+        
+        addRandomPoints()
     }
 
     override func mouseUp(with event: NSEvent) {
         let pos = event.location(in: self)
         addNode(at: pos)
+    }
+    
+    func addRandomPoints() {
+        for _ in 0 ..< startingPoints {
+            let location = CGPoint(x: random(size.width), y: random(size.height))
+            addNode(at: location)
+        }
     }
     
     func addNode(at position: CGPoint) {
@@ -164,6 +175,8 @@ class GameScene: SKScene {
         
         population.removeAll(keepingCapacity: true)
         lookup.removeAll()
+        
+        addRandomPoints()
     }
     
     @discardableResult
