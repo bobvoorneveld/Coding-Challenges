@@ -17,7 +17,7 @@ class GameScene: SKScene {
     }
     
     private var currentMode: Mode = .genetic
-    private var startingPoints = 250
+    private var startingPoints = 50
 
     private var distanceNode: SKLabelNode!
     private var nodeSizeNode: SKLabelNode!
@@ -45,8 +45,8 @@ class GameScene: SKScene {
     // Genetic
     var population = [Path]()
     var lookup = [Int: Double]()
-    var bestPath: Path?
     var generation = 0
+    var bestPath: Path?
 
     override func didMove(to view: SKView) {
         anchorPoint = CGPoint(x: 0, y: 0)
@@ -85,7 +85,13 @@ class GameScene: SKScene {
     
     func addRandomPoints() {
         for _ in 0 ..< startingPoints {
-            let location = CGPoint(x: random(size.width), y: random(size.height))
+            var location: CGPoint = .zero
+            while true {
+                location = CGPoint(x: random(size.width), y: size.height / 2 + random(size.height / 2))
+                if !(location.y > infoNode.frame.minY && location.x < distanceNode.frame.maxX) {
+                    break
+                }
+            }
             addNode(at: location)
         }
     }
@@ -146,6 +152,9 @@ class GameScene: SKScene {
             infoNode.text = "Generation: \(generation)"
         }
         
+        if let bestPathG = bestPathForGeneration {
+            bestPathG.position = CGPoint(x: bestPathG.position.x, y: bestPathG.position.y - size.height / 2)
+        }
         if prevDistance > shortestDistance {
             backgroundColor = .darkGray
         } else {
@@ -195,7 +204,8 @@ class GameScene: SKScene {
         }
 
         if distance < shortestDistance {
-            let points = nodes.map { $0.position }
+            var points = nodes.map { $0.position }
+            points.append(nodes[0].position)
             newShortestDistance(distance: distance, points: points)
         }
         return distance
@@ -204,9 +214,9 @@ class GameScene: SKScene {
     private func calcDistance(_ nodes: [SKShapeNode]) -> Double {
         var distance = 0.0
         
-        for i in 1 ..< nodes.count - 1 {
+        for i in 1 ..< nodes.count {
             let nodeA = nodes[i]
-            let nodeB = nodes[i + 1]
+            let nodeB = nodes[(i + 1) % nodes.count]
             let hash = (nodeA.hashValue << 5) &+ nodeA.hashValue &+ nodeB.hashValue
             if let nodeDistance = lookup[hash] {
                 distance += nodeDistance

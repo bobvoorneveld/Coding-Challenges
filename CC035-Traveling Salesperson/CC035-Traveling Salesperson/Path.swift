@@ -17,7 +17,7 @@ struct Path {
     init(order: [Int], distance: Double) {
         self.order = order
         self.distance = distance
-        self.fitness = 1 / (pow(distance, 8) + 1)
+        self.fitness = 1 / (pow(distance, 2) + 1)
     }
 }
 

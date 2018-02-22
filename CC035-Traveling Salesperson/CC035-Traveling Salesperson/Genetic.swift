@@ -8,17 +8,16 @@
 
 import SpriteKit
 
-let populationSize = 50
-let learningRate: Double = 0.1
+let populationSize = 100
+let learningRate: Double = 0.01
 
 extension GameScene {
     
     func createNewPopulation() {
-        let order = [Int](1 ..< nodes.count)
+        let order = [Int](0 ..< nodes.count)
         population.removeAll()
         for _ in 0 ..< populationSize {
-            var newOrder = order.shuffled()
-            newOrder.insert(0, at: 0)
+            let newOrder = order.shuffled()
             let distance = createPath(from: newOrder.map { nodes[$0] }) ?? 0
             population.append(Path(order: newOrder, distance: distance))
         }
@@ -30,21 +29,27 @@ extension GameScene {
         }
         
         var newPopulation = [Path]()
-        
-        let reUse = Int(Double(population.count) * 0.95)
-        if let path = bestPath {
-            newPopulation.append(path)
+        if let bestPath = bestPath {
+            newPopulation.append(bestPath)
         }
-
+        
+        let reUse = Int(Double(population.count) * 0.80)
+        
         for _ in 1 ..< reUse {
             let pathA = pickOne()
             let pathB = pickOne()
             
             var newPath: Path
             if pathA == pathB {
-                newPath = mutate(pathA, mutationRate: learningRate)
+                if random() < 0.3 {
+                    newPath = crossOver(pathA, pathB)
+                } else if random() < 0.5 {
+                    newPath = crossOver2(pathA, pathB)
+                } else {
+                    newPath = crossOver3(pathA, pathB)
+                }
             } else {
-                newPath = crossOver(pathA, pathB)
+                newPath = mutate(pathA, mutationRate: learningRate)
             }
             if newPath.distance == shortestDistance {
                 bestPath = newPath
@@ -53,13 +58,12 @@ extension GameScene {
         }
         
         for _ in 0 ... population.count - reUse {
-            var randomOrder = [Int](1 ..< nodes.count).shuffled()
-            randomOrder.insert(0, at: 0)
+            let randomOrder = [Int](0 ..< nodes.count).shuffled()
             let distance = createPath(from: randomOrder.map { nodes[$0] }) ?? 0
             let path = Path(order: randomOrder, distance: distance)
             newPopulation.append(path)
         }
-        
+
         population = newPopulation
     }
     
@@ -72,8 +76,45 @@ extension GameScene {
         }
     }
     
+    private func crossOver3(_ a: Path, _ b: Path) -> Path {
+        var newOrder = Array<Int>(repeating: -1, count: a.order.count)
+        let startIndex = random(0, a.order.count)
+        let endIndex = random(startIndex + 1, a.order.count)
+
+        for i in 0 ..< a.order.count {
+            if (startIndex ..< endIndex).contains(i) {
+                newOrder[i] = a.order[i]
+            }
+        }
+        
+        for i in 0 ..< b.order.count {
+            if !newOrder.contains(b.order[i]) {
+                for j in 0 ..< newOrder.count {
+                    if newOrder[j] == -1 {
+                        newOrder[j] = b.order[i]
+                        break
+                    }
+                }
+            }
+        }
+        
+        let distance = createPath(from: newOrder.map { nodes[$0] }) ?? 0
+        return Path(order: newOrder, distance: distance)
+    }
+
+    private func crossOver2(_ a: Path, _ b: Path) -> Path {
+        let switchpoint = random(0, a.order.count)
+        var newOrder = Array(a.order[0 ..< switchpoint])
+        for item in b.order {
+            if !newOrder.contains(item) {
+                newOrder.append(item)
+            }
+        }
+        let distance = createPath(from: newOrder.map { nodes[$0] }) ?? 0
+        return Path(order: newOrder, distance: distance)
+    }
     private func crossOver(_ a: Path, _ b: Path) -> Path {
-        let startIndex = random(1, a.order.count)
+        let startIndex = random(0, a.order.count)
         let endIndex = random(startIndex + 1, a.order.count)
         let removingItems = a.order[startIndex ..< endIndex]
         var addingItems = [Int]()
@@ -95,8 +136,8 @@ extension GameScene {
         }
         for _ in 0 ..< nodes.count {
             if random() < mutationRate {
-                let i = random(1, path.order.count - 1)
-                let j = random(1, path.order.count - 1)
+                let i = random(0, path.order.count)
+                let j = random(0, path.order.count)
                 order.swapAt(i, j)
             }
         }
