@@ -6,11 +6,8 @@ In this version was extra added:
 
 - Add locations by clicking somewhere in the scene.
 - Reset the locations by hitting the spacebar.
-- The starting point is always the first added point. (A salesperson has a starting location doesn't he?)
-
-TODO:
-
-- Genetic algorithm
+- Flashing of background when path improves.
+- The route is a loop.
 
 The original video for this challenge on [YouTube](https://www.youtube.com/watch?v=BAejnwN4Ccw)
 
