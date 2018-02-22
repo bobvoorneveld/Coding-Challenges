@@ -9,7 +9,7 @@
 import SpriteKit
 
 let populationSize = 100
-let learningRate: Double = 0.1
+let learningRate: Double = 0.05
 
 extension GameScene {
     
@@ -36,9 +36,13 @@ extension GameScene {
             let pathA = pickOne()
             let pathB = pickOne()
             
-            var newPath = crossOver(pathA, pathB)
-            newPath = mutate(newPath, mutationRate: learningRate)
-            newPopulation.append(newPath)
+            if pathA == pathB {
+                let newPath = mutate(pathA, mutationRate: learningRate)
+                newPopulation.append(newPath)
+            } else {
+                let newPath = crossOver(pathA, pathB)
+                newPopulation.append(newPath)
+            }
         }
         
         for _ in 0 ... population.count - reUse {
@@ -53,28 +57,22 @@ extension GameScene {
     }
     
     private func pickOne() -> Path {
-        var index = 0
-        var r = Double(arc4random()) / Double(Int.max)
-        
-        while r > 0 {
-            r = r - population[index].distance
-            index += 1
+        while true {
+            let index = random(populationSize)
+            if random() < population[index].normalizedFitness {
+                return population[index]
+            }
         }
-        index -= 1
-        return population[index]
     }
     
     private func crossOver(_ a: Path, _ b: Path) -> Path {
-        let startIndex = Int(arc4random_uniform(UInt32(a.order.count - 1)))
-        let endIndex = startIndex + 1 + Int(arc4random_uniform(UInt32(a.order.count - startIndex - 1)))
-        var newOrder = Array(a.order[startIndex ... endIndex])
-        
+        let switchPoint = random(1, a.order.count)
+        var newOrder = Array(a.order[0 ..< switchPoint])
         for item in b.order {
             if !newOrder.contains(item) {
                 newOrder.append(item)
             }
         }
-        
         let distance = createPath(from: newOrder.map { nodes[$0] }) ?? 0
         return Path(order: newOrder, distance: distance)
     }
@@ -85,9 +83,9 @@ extension GameScene {
             return path
         }
         for _ in 0 ..< nodes.count {
-            if (Double(arc4random()) / Double(UInt32.max)) < mutationRate {
-                let i = 1 + Int(arc4random_uniform(UInt32(order.count - 1)))
-                let j = 1 + Int(arc4random_uniform(UInt32(order.count - 1)))
+            if random() < mutationRate {
+                let i = random(1, path.order.count - 1)
+                let j = random(1, path.order.count - 1)
                 order.swapAt(i, j)
             }
         }
@@ -96,13 +94,15 @@ extension GameScene {
     }
     
     func normalizePopulation() {
-        var sum = 0.0
+        var max = 0.0
         for path in population {
-            sum += path.distance
+            if path.fitness > max {
+                max = path.fitness
+            }
         }
         
         for i in 0 ..< population.count {
-            population[i].distance = population[i].distance / sum
+            population[i].normalizedFitness = population[i].fitness / max
         }
     }
 }

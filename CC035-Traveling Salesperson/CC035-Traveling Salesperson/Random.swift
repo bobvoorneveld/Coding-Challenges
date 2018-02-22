@@ -30,3 +30,23 @@ extension Sequence {
         return result
     }
 }
+
+func random() -> Double {
+    return Double(arc4random()) / 0xFFFFFFFF
+}
+
+func random(_ n: Int) -> Int {
+    return Int(arc4random_uniform(UInt32(n)))
+}
+
+func random(_ min: Int, _ max: Int) -> Int {
+    return random(max - min) + min
+}
+
+func random(_ n: CGFloat) -> CGFloat {
+    return CGFloat(random()) * n
+}
+
+func random(_ min: CGFloat, _ max: CGFloat) -> CGFloat {
+    return random(max - min) + min
+}

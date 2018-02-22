@@ -44,29 +44,31 @@ class GameScene: SKScene {
     // Genetic
     var population = [Path]()
     var lookup = [Int: Double]()
+    var generation = 0
 
     override func didMove(to view: SKView) {
-        
+        anchorPoint = CGPoint(x: 0, y: 0)
         // Create shape node to use during mouse interaction
         let w = (self.size.width + self.size.height) * 0.01
         spinnyNode = SKShapeNode.init(rectOf: CGSize.init(width: w, height: w), cornerRadius: w * 0.3)
         spinnyNode!.lineWidth = 2.5
         spinnyNode!.run(SKAction.repeatForever(SKAction.rotate(byAngle: CGFloat(Double.pi), duration: 1)))
         
-        distanceNode = SKLabelNode(text: "Distance: 0")
-        distanceNode.position = CGPoint(x: -size.width / 2, y: -size.height / 2)
-        distanceNode.horizontalAlignmentMode = .left
-        distanceNode.verticalAlignmentMode = .bottom
-        addChild(distanceNode!)
 
         nodeSizeNode = SKLabelNode(text: "Cities: 0")
-        nodeSizeNode.position = CGPoint(x: -size.width / 2, y: size.height / 2)
+        nodeSizeNode.position = CGPoint(x: 0, y: size.height)
         nodeSizeNode.horizontalAlignmentMode = .left
         nodeSizeNode.verticalAlignmentMode = .top
         addChild(nodeSizeNode!)
 
+        distanceNode = SKLabelNode(text: "Distance: 0")
+        distanceNode.position = CGPoint(x: 0, y: size.height - nodeSizeNode.frame.height)
+        distanceNode.horizontalAlignmentMode = .left
+        distanceNode.verticalAlignmentMode = .top
+        addChild(distanceNode!)
+
         infoNode = SKLabelNode(text: "")
-        infoNode.position = CGPoint(x: -size.width / 2, y: (size.height / 2) - nodeSizeNode.frame.height)
+        infoNode.position = CGPoint(x: 0, y: size.height - nodeSizeNode.frame.height - distanceNode.frame.height)
         infoNode.horizontalAlignmentMode = .left
         infoNode.verticalAlignmentMode = .top
         addChild(infoNode!)
@@ -92,11 +94,13 @@ class GameScene: SKScene {
         addChild(n)
         nodes.append(n)
         nodeSizeNode.text = "Cities: \(nodes.count)"
+        infoNode.text = "Generation: 0"
         
         
         switch currentMode {
         case .genetic:
             createNewPopulation()
+            generation = 0
         case .lexical:
             // Reset the arrangement
             arrangement = [Int](0 ..< nodes.count)
@@ -125,12 +129,14 @@ class GameScene: SKScene {
                 createPath(from: lexical)
             }
         case .genetic:
+            generation += 1
             normalizePopulation()
             nextGeneration()
+            infoNode.text = "Generation: \(generation)"
         }
         
         if prevDistance > shortestDistance {
-            backgroundColor = .white
+            backgroundColor = .darkGray
         } else {
             backgroundColor = .black
         }
@@ -145,6 +151,7 @@ class GameScene: SKScene {
     private func reset() {
         distanceNode.text = "Distance: 0"
         nodeSizeNode.text = "Cities: 0"
+        infoNode.text = ""
 
         nodes.forEach({$0.removeFromParent()})
         nodes.removeAll()
@@ -178,8 +185,7 @@ class GameScene: SKScene {
             let points = nodes.map { $0.position }
             newShortestDistance(distance: distance, points: points)
         }
-        
-        return 1 / (pow(distance, 8) + 1)
+        return distance
     }
     
     private func calcDistance(_ nodes: [SKShapeNode]) -> Double {

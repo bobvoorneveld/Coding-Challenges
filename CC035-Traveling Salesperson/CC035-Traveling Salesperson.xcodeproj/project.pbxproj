@@ -70,6 +70,7 @@
 				C41AD489203AFD7500E55A6F /* AppDelegate.swift */,
 				C41AD48B203AFD7500E55A6F /* GameScene.sks */,
 				C41AD48F203AFD7500E55A6F /* GameScene.swift */,
+				C4C09FE6203C2D3000A6791A /* Path.swift */,
 				C4C09FE0203C140100A6791A /* Random.swift */,
 				C4C09FE2203C165900A6791A /* Lexical.swift */,
 				C4C09FE4203C172500A6791A /* Genetic.swift */,
@@ -78,7 +79,6 @@
 				C41AD495203AFD7500E55A6F /* Main.storyboard */,
 				C41AD498203AFD7500E55A6F /* Info.plist */,
 				C41AD499203AFD7500E55A6F /* CC035_Traveling_Salesperson.entitlements */,
-				C4C09FE6203C2D3000A6791A /* Path.swift */,
 			);
 			path = "CC035-Traveling Salesperson";
 			sourceTree = "<group>";

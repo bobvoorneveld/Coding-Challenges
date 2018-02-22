@@ -10,7 +10,15 @@ import Foundation
 
 struct Path {
     let order: [Int]
-    var distance: Double = 0.0
+    let distance: Double
+    let fitness: Double
+    var normalizedFitness: Double = 0.0
+    
+    init(order: [Int], distance: Double) {
+        self.order = order
+        self.distance = distance
+        self.fitness = 1 / (pow(distance, 8) + 1)
+    }
 }
 
 func ==(lhs: Path, rhs: Path) -> Bool {
